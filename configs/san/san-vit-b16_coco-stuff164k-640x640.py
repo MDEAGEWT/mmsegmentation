@@ -2,7 +2,7 @@ _base_ = [
     '../_base_/models/san_vit-b16.py', '../_base_/datasets/coco-stuff164k.py',
     '../_base_/default_runtime.py', '../_base_/schedules/schedule_160k.py'
 ]
-crop_size = (640, 640)
+crop_size = (256, 256)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations'),
@@ -38,7 +38,7 @@ data_preprocessor = dict(
 model = dict(
     pretrained=pretrained,
     text_encoder=dict(dataset_name='coco-stuff164k'),
-    decode_head=dict(num_classes=171))
+    decode_head=dict(num_classes=2))
 
 # training schedule for 60k
 train_cfg = dict(

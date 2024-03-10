@@ -1,6 +1,6 @@
 # dataset settings
-dataset_type = 'COCOStuffDataset'
-data_root = 'data/coco_stuff164k'
+dataset_type = 'COCOFireDataset'
+data_root = '/home/kmk/ws/aispark/Tool/'
 crop_size = (512, 512)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -48,7 +48,7 @@ train_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         data_prefix=dict(
-            img_path='images/train2017', seg_map_path='annotations/train2017'),
+            img_path='2_train_set/', seg_map_path='mask_seg/'),
         pipeline=train_pipeline))
 val_dataloader = dict(
     batch_size=1,
@@ -59,7 +59,7 @@ val_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         data_prefix=dict(
-            img_path='images/val2017', seg_map_path='annotations/val2017'),
+            img_path='2_val_set/', seg_map_path='mask_seg/'),
         pipeline=test_pipeline))
 test_dataloader = val_dataloader
 
